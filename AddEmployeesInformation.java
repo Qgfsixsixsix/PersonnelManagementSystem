@@ -25,11 +25,11 @@ public class AddEmployeesInformation extends JFrame{
 	
 	private static DbProcess dbProcess;
 	
-	String SelectQueryFieldSex = "��";
+	String SelectQueryFieldSex = "男";
 	String SelectQueryFieldDepartment = null;
 	String SelectQueryFieldJob = null;
 	String SelectQueryFieldEducation = null;
-	String SelectQueryFieldEmployee = "Ա��";
+	String SelectQueryFieldEmployee = "员工";
 	
 	public AddEmployeesInformation(){
 		
@@ -44,26 +44,26 @@ public class AddEmployeesInformation extends JFrame{
 		//TabbedPanel control(n.);
 		JTabbedPane tp = new JTabbedPane();
 		tp.add(addEmployees);
-		tp.setTitleAt(0,"    ������Ա��    ");
+		tp.setTitleAt(0,"    增加新员工    ");
 		this.setContentPane(tp);
 		
 		//define AddEmployeesInformation
-		JLabel label = new JLabel("������Ա��������Ϣ��(*Ϊ����)");
-		JLabel label1 = new JLabel("Ա����");
-		JLabel label2 = new JLabel("����");
-		JLabel label3 = new JLabel("Ȩ��");
-		JLabel label4 = new JLabel("����");
-		JLabel label5 = new JLabel("�Ա�");
-		JLabel label6 = new JLabel("����");
-		JLabel label7 = new JLabel("���ڲ���");
-		JLabel label8 = new JLabel("ְ��");
-		JLabel label9 = new JLabel("�ܽ����̶�");
-		JLabel label10 = new JLabel("רҵ����");
-		JLabel label11 = new JLabel("��ͥ��ַ");
-		JLabel label12 = new JLabel("��ϵ�绰");
-		JLabel label13 = new JLabel("��������");
-		JLabel label14 = new JLabel("��ǰ״̬");
-		JLabel label15 = new JLabel("��ע");
+		JLabel label = new JLabel("添加新员工各类信息：(*为必填)");
+		JLabel label1 = new JLabel("员工号");
+		JLabel label2 = new JLabel("密码");
+		JLabel label3 = new JLabel("权限");
+		JLabel label4 = new JLabel("姓名");
+		JLabel label5 = new JLabel("性别");
+		JLabel label6 = new JLabel("生日");
+		JLabel label7 = new JLabel("所在部门");
+		JLabel label8 = new JLabel("职务");
+		JLabel label9 = new JLabel("受教育程度");
+		JLabel label10 = new JLabel("专业技能");
+		JLabel label11 = new JLabel("家庭地址");
+		JLabel label12 = new JLabel("联系电话");
+		JLabel label13 = new JLabel("电子邮箱");
+		JLabel label14 = new JLabel("当前状态");
+		JLabel label15 = new JLabel("备注");
 		JLabel label16 = new JLabel("*");
 		JLabel label17 = new JLabel("*");
 		//JLabel label18 = new JLabel("*");
@@ -169,8 +169,8 @@ public class AddEmployeesInformation extends JFrame{
 		remarks = new JTextField();
 		
 		JComboBox<String> jComboBoxSex = new JComboBox<>();
-		jComboBoxSex.addItem("��");
-		jComboBoxSex.addItem("Ů");
+		jComboBoxSex.addItem("男");
+		jComboBoxSex.addItem("女");
 		sex.setText(SelectQueryFieldSex);
 		jComboBoxSex.addItemListener(new ItemListener() {
 			@Override
@@ -190,11 +190,11 @@ public class AddEmployeesInformation extends JFrame{
 		
 
 		JComboBox<String> jComboBoxDepartment = new JComboBox<>();
-		jComboBoxDepartment.addItem("��������");
-		jComboBoxDepartment.addItem("��˾����");
-		jComboBoxDepartment.addItem("���в���");
-		jComboBoxDepartment.addItem("��岿��");
-		jComboBoxDepartment.addItem("������");
+		jComboBoxDepartment.addItem("政府部门");
+		jComboBoxDepartment.addItem("公司部门");
+		jComboBoxDepartment.addItem("城市部门");
+		jComboBoxDepartment.addItem("乡村部门");
+		jComboBoxDepartment.addItem("外企部门");
 		subordinateDepartment.setText("001");
 		jComboBoxDepartment.addItemListener(new ItemListener() {
 			@Override
@@ -203,15 +203,15 @@ public class AddEmployeesInformation extends JFrame{
 				switch(event.getStateChange()) {
 					case ItemEvent.SELECTED:
 						SelectQueryFieldDepartment = (String) event.getItem();
-						if(SelectQueryFieldDepartment.equals("��������"))
+						if(SelectQueryFieldDepartment.equals("政府部门"))
 							subordinateDepartment.setText("001");
-						else if(SelectQueryFieldDepartment.equals("��˾����"))
+						else if(SelectQueryFieldDepartment.equals("公司部门"))
 							subordinateDepartment.setText("002");
-						else if(SelectQueryFieldDepartment.equals("���в���"))
+						else if(SelectQueryFieldDepartment.equals("城市部门"))
 							subordinateDepartment.setText("003");
-						else if(SelectQueryFieldDepartment.equals("��岿��"))
+						else if(SelectQueryFieldDepartment.equals("乡村部门"))
 							subordinateDepartment.setText("004");
-						else if(SelectQueryFieldDepartment.equals("������"))
+						else if(SelectQueryFieldDepartment.equals("外企部门"))
 							subordinateDepartment.setText("005");
 						break;
 					case ItemEvent.DESELECTED:
@@ -222,10 +222,10 @@ public class AddEmployeesInformation extends JFrame{
 		addEmployees.add(jComboBoxDepartment);
 		
 		JComboBox<String> jComboBoxJob = new JComboBox<>();
-		jComboBoxJob.addItem("Ա��");
-		jComboBoxJob.addItem("����");
-		jComboBoxJob.addItem("�ϰ�");
-		jComboBoxJob.addItem("���³�");
+		jComboBoxJob.addItem("员工");
+		jComboBoxJob.addItem("经理");
+		jComboBoxJob.addItem("老板");
+		jComboBoxJob.addItem("董事长");
 		job.setText("0");
 		jComboBoxJob.addItemListener(new ItemListener() {
 			@Override
@@ -234,13 +234,13 @@ public class AddEmployeesInformation extends JFrame{
 				switch(event.getStateChange()) {
 					case ItemEvent.SELECTED:
 						SelectQueryFieldJob = (String) event.getItem();
-						if(SelectQueryFieldJob.equals("Ա��"))
+						if(SelectQueryFieldJob.equals("员工"))
 							job.setText("0");
-						else if(SelectQueryFieldJob.equals("����"))
+						else if(SelectQueryFieldJob.equals("经理"))
 							job.setText("1");
-						else if(SelectQueryFieldJob.equals("�ϰ�"))
+						else if(SelectQueryFieldJob.equals("老板"))
 							job.setText("2");
-						else if(SelectQueryFieldJob.equals("���³�"))
+						else if(SelectQueryFieldJob.equals("董事长"))
 							job.setText("3");
 						break;
 					case ItemEvent.DESELECTED:
@@ -251,15 +251,15 @@ public class AddEmployeesInformation extends JFrame{
 		addEmployees.add(jComboBoxJob);
 		
 		JComboBox<String> jComboBoxEducation = new JComboBox<>();
-		jComboBoxEducation.addItem("Сѧ");
-		jComboBoxEducation.addItem("����");
-		jComboBoxEducation.addItem("����");
-		jComboBoxEducation.addItem("ְ��");
-		jComboBoxEducation.addItem("��");
-		jComboBoxEducation.addItem("��ר");
-		jComboBoxEducation.addItem("˶ʿ");
-		jComboBoxEducation.addItem("��ʿ");
-		jComboBoxEducation.addItem("��ʿ��");
+		jComboBoxEducation.addItem("小学");
+		jComboBoxEducation.addItem("初中");
+		jComboBoxEducation.addItem("高中");
+		jComboBoxEducation.addItem("职高");
+		jComboBoxEducation.addItem("大本");
+		jComboBoxEducation.addItem("大专");
+		jComboBoxEducation.addItem("硕士");
+		jComboBoxEducation.addItem("博士");
+		jComboBoxEducation.addItem("博士后");
 		educationalLevel.setText("0");
 		jComboBoxEducation.addItemListener(new ItemListener() {
 			@Override
@@ -268,23 +268,23 @@ public class AddEmployeesInformation extends JFrame{
 				switch(event.getStateChange()) {
 					case ItemEvent.SELECTED:
 						SelectQueryFieldEducation = (String) event.getItem();
-						if(SelectQueryFieldEducation.equals("Сѧ"))
+						if(SelectQueryFieldEducation.equals("小学"))
 							educationalLevel.setText("0");
-						else if(SelectQueryFieldEducation.equals("����"))
+						else if(SelectQueryFieldEducation.equals("初中"))
 							educationalLevel.setText("1");
-						else if(SelectQueryFieldEducation.equals("����"))
+						else if(SelectQueryFieldEducation.equals("高中"))
 							educationalLevel.setText("2");
-						else if(SelectQueryFieldEducation.equals("ְ��"))
+						else if(SelectQueryFieldEducation.equals("职高"))
 							educationalLevel.setText("3");
-						else if(SelectQueryFieldEducation.equals("��"))
+						else if(SelectQueryFieldEducation.equals("大本"))
 							educationalLevel.setText("4");
-						else if(SelectQueryFieldEducation.equals("��ר"))
+						else if(SelectQueryFieldEducation.equals("大专"))
 							educationalLevel.setText("5");
-						else if(SelectQueryFieldEducation.equals("˶ʿ"))
+						else if(SelectQueryFieldEducation.equals("硕士"))
 							educationalLevel.setText("6");
-						else if(SelectQueryFieldEducation.equals("��ʿ"))
+						else if(SelectQueryFieldEducation.equals("博士"))
 							educationalLevel.setText("7");
-						else if(SelectQueryFieldEducation.equals("��ʿ��"))
+						else if(SelectQueryFieldEducation.equals("博士后"))
 							educationalLevel.setText("8");
 						break;
 					case ItemEvent.DESELECTED:
@@ -295,8 +295,8 @@ public class AddEmployeesInformation extends JFrame{
 		addEmployees.add(jComboBoxEducation);
 		
 		JComboBox<String> jComboBoxEmployees = new JComboBox<>();
-		jComboBoxEmployees.addItem("Ա��");
-		jComboBoxEmployees.addItem("��Ա��");
+		jComboBoxEmployees.addItem("员工");
+		jComboBoxEmployees.addItem("非员工");
 		currentState.setText(SelectQueryFieldEmployee);
 		jComboBoxEmployees.addItemListener(new ItemListener() {
 			@Override
@@ -366,9 +366,9 @@ public class AddEmployeesInformation extends JFrame{
 		remarks.setBounds(525,370,200,20);
 		//label30.setBounds(735,375,10,10);
 		
-		JButton jb1 = new JButton("ȷ��");
-		JButton jb2 = new JButton("�˳�ϵͳ");
-		JButton jb3 = new JButton("���ز˵�");
+		JButton jb1 = new JButton("确定");
+		JButton jb2 = new JButton("退出系统");
+		JButton jb3 = new JButton("返回菜单");
 		
 		addEmployees.add(jb1);
 		addEmployees.add(jb2);
@@ -426,10 +426,10 @@ public class AddEmployeesInformation extends JFrame{
 					email.setText("");
 					currentState.setText("");
 					remarks.setText("");
-					JOptionPane.showMessageDialog(null, "���ӳɹ�", "�ɹ�",JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(null, "添加成功", "成功",JOptionPane.PLAIN_MESSAGE);
 				}
 				else {
-					JOptionPane.showMessageDialog(null, "����û������", "��ʾ", JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(null, "必填没有填完", "提示", JOptionPane.WARNING_MESSAGE);
 				}
 			}
 		});
@@ -452,7 +452,7 @@ public class AddEmployeesInformation extends JFrame{
 		this.setSize(800,550);
 		this.setLocation(250,200);
 		this.setVisible(true);
-		this.setTitle("���¹���ϵͳ");
+		this.setTitle("人事管理系统");
 		this.setResizable(false);
 	}
 	public void insertProcess(){
@@ -490,10 +490,10 @@ public class AddEmployeesInformation extends JFrame{
 		sql = sql + Remark + "');";
 		try{
 			if(dbProcess.executeUpdate(sql) < 1){
-				JOptionPane.showMessageDialog(null,"���ݲ�������","����",JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null,"数据操作错误","错误",JOptionPane.ERROR_MESSAGE);
 			}
 		}catch(Exception e){
-			JOptionPane.showMessageDialog(null,"���ݲ�������","����",JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null,"数据操作错误","错误",JOptionPane.ERROR_MESSAGE);
 		}
 	}
 	public void insertprocess(){
@@ -501,13 +501,13 @@ public class AddEmployeesInformation extends JFrame{
 		String str = String.valueOf(new Random().nextInt(100000));
 		String sql = "insert into record values('";
 		sql = sql + str + "','";
-		sql = sql + Id + "','��Ա������','ok');"; 
+		sql = sql + Id + "','新员工加入','ok');"; 
 		try{
 			if(dbProcess.executeUpdate(sql) < 1){
-				JOptionPane.showMessageDialog(null,"���ݲ�������","����",JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null,"数据操作错误","错误",JOptionPane.ERROR_MESSAGE);
 			}
 		}catch(Exception e){
-			JOptionPane.showMessageDialog(null,"���ݲ�������","����",JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null,"数据操作错误","错误",JOptionPane.ERROR_MESSAGE);
 		}
 	}
 }
